@@ -17,8 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from catalog import views
+from django.urls import re_path
+
 
 urlpatterns = [
- path('', views.index, name='home'),
+ path('', views.index, name='index'),
  path('admin/', admin.site.urls),
-]
+ re_path(r"^books/$", views.BookListView.as_view(), name='books'),
+ re_path(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
+ re_path(r'^authors/$', views.AuthorListView.as_view(), name='authors'),
+]#делаю через репаф потому что его убрали(( цитирую:
+ #django.conf.urls.url() was deprecated in Django 3.0, and is removed in Django 4.0+.
