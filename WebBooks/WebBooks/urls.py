@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from catalog import views
 from django.urls import re_path
 
@@ -28,3 +28,7 @@ urlpatterns = [
  re_path(r'^authors/$', views.AuthorListView.as_view(), name='authors'),
 ]#делаю через репаф потому что его убрали(( цитирую:
  #django.conf.urls.url() was deprecated in Django 3.0, and is removed in Django 4.0+.
+
+urlpatterns += [
+ path('accounts/', include('django.contrib.auth.urls')),
+]
