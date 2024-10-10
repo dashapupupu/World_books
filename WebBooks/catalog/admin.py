@@ -36,4 +36,15 @@ class BookInstanceAdmin(admin.ModelAdmin):
  ('Экземпляр книги', {'fields': ('book', 'imprint', 'inv_nom')}),
  ('Статус и окончание его действия', {'fields': ('status', 'due_back')}),
  )
-
+ list_display = ('book', 'status', 'borrower', 'due_back', 'id')
+ list_filter = ('status', 'due_back')
+ fieldsets = (
+ (None, {
+ 'fields': ('book', 'imprint', 'inv_nom')
+ }),
+ ('Availability', {
+ 'fields': ('status', 'due_back', 'borrower')
+ }),
+ )
+def __init__(self):
+ BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='2').order_by('due_back')
