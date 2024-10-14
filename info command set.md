@@ -26,7 +26,7 @@ Activating venv python [windows -> powershell].
 ```sh
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-venv\Scripts\Activate.ps1
+.venv\Scripts\Activate.ps1
 ```
 
 Deactivation venv python.

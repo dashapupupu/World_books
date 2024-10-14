@@ -1,0 +1,2 @@
+1. https://pressanybutton.ru/post/poleznye-instrumenty/razvorachivanie-django-proekta-na-pythonanywhere/?ysclid=m2363wes1454615247
+2. https://anhel.in/python/doc/django-deployment/
